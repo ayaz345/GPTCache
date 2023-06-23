@@ -13,7 +13,6 @@ def _test_evaluation(evaluation):
     score2 = evaluation.evaluation({'question': 'USER:foo1\nUSER:foo2\nUSER:foo3\n'}, {'question': 'USER:foo1\nUSER:foo2\n'})
     evaluation = SequenceMatchEvaluation([0.2, 0.8], 'onnx')
     score2 = evaluation.evaluation({'question': 'USER:foo1\nUser:foo2\nUser:foo3\n'}, {'question': 'USER:foo1\nUser:foo2\n'})
-    assert True
 
 def test_sequence_match():
     evaluation = SequenceMatchEvaluation([0.1, 0.2, 0.7], 'onnx')

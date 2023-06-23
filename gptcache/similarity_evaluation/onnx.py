@@ -129,5 +129,4 @@ class OnnxModelEvaluation(SimilarityEvaluation):
             "token_type_ids": padded_token_type_ids.reshape(n_candidates, -1),
         }
         ort_outputs = self.ort_session.run(None, ort_inputs)
-        scores = ort_outputs[0][:, 1]
-        return scores
+        return ort_outputs[0][:, 1]

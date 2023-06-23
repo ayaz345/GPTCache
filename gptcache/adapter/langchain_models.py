@@ -250,7 +250,7 @@ def _update_cache_callback(
 
 
 def _cache_msg_data_convert(cache_data):
-    llm_res = ChatResult(
+    return ChatResult(
         generations=[
             ChatGeneration(
                 text="",
@@ -260,7 +260,6 @@ def _cache_msg_data_convert(cache_data):
         ],
         llm_output=None,
     )
-    return llm_res
 
 
 def _update_cache_msg_callback(

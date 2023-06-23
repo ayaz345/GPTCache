@@ -29,16 +29,10 @@ class OpenAI(BaseEmbedding):
 
     def __init__(self, model: str = "text-embedding-ada-002", api_key: str = None):
         if not api_key:
-            if openai.api_key:
-                api_key = openai.api_key
-            else:
-                api_key = os.getenv("OPENAI_API_KEY")
+            api_key = openai.api_key if openai.api_key else os.getenv("OPENAI_API_KEY")
         openai.api_key = api_key
         self.model = model
-        if model in self.dim_dict():
-            self.__dimension = self.dim_dict()[model]
-        else:
-            self.__dimension = None
+        self.__dimension = self.dim_dict()[model] if model in self.dim_dict() else None
 
     def to_embeddings(self, data, **_):
         """Generate embedding given text input

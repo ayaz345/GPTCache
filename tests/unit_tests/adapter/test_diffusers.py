@@ -65,7 +65,7 @@ def get_dummy_components():
     text_encoder = CLIPTextModel(text_encoder_config)
     tokenizer = CLIPTokenizer.from_pretrained("hf-internal-testing/tiny-random-clip")
 
-    components = {
+    return {
         "unet": unet,
         "scheduler": scheduler,
         "vae": vae,
@@ -74,7 +74,6 @@ def get_dummy_components():
         "safety_checker": None,
         "feature_extractor": None,
     }
-    return components
 
 
 @pytest.mark.tags("L2")
